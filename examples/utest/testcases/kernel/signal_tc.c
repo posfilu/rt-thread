@@ -128,6 +128,7 @@ void rt_signal_wait_thread(void *parm)
     /* case 5:rt_signal_wait, two thread, thread1: install and unmask, then wait 1s; thread2: kill, should received. */
     if (rt_signal_wait((void *)&selectset, &recive_si, RT_TICK_PER_SECOND) != RT_EOK)
     {
+        rt_thread_mdelay(2000);
         return;
     }
 
